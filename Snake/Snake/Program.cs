@@ -3,12 +3,15 @@
 namespace Snake {
     class Program {
         static void Main() {
-            int x1 = 2;
-            int y1 = 4;
-            char sym1 = 'x';
+            Point p = new Point();
+            Move(p, 1, 1);
 
-            Console.SetCursorPosition(x1, y1);
-            Console.WriteLine(sym1);
+            Console.WriteLine(p.x);
+            Console.WriteLine(p.y);
+        }
+        static void Move(Point p1,int x,int y) {
+            p1.x = x + 1;
+            p1.y = y + 1;
         }
     }
 }
