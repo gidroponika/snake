@@ -8,12 +8,12 @@ namespace Snake {
         public int Y { get; protected set; }
         public char Sym { get; protected set; }
         protected GameObject() { }
-        public GameObject(int x, int y, char sym) {
-            X = x;
-            Y = y;
-            Sym = sym;
+        public GameObject(int xPos, int yPos, char symbol) {
+            X = xPos;
+            Y = yPos;
+            Sym = symbol;
         }
-        public virtual void DrawSymbol() {
+        public virtual void Draw() {
             Console.SetCursorPosition(X, Y);
             Console.Write(Sym);
         }

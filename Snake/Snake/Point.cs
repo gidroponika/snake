@@ -4,8 +4,9 @@ using System.Text;
 
 namespace Snake {
     class Point : GameObject{
-        public Point(int x, int y, char sym) :
-            base (x,y,sym)
-        {}
+        public Point(int xPos, int yPos, char symbol) :
+            base (xPos,yPos,symbol)
+        {
+        }
     }
 }

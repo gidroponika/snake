@@ -7,48 +7,27 @@ namespace Snake {
         HORIZONTAL,
         VERTICAL
     }
-    class HorizontalLine :GameObject{
-        List<GameObject> line = new List<GameObject>();
-
-        public HorizontalLine(int xStart,int yStart,
-                              int endDirection,char symbol) 
+    class Line :GameObject{
+        List<Point> line = new List<Point>();
+        public Line(LineType type,int xStart,int yStart,int length,char symbol) 
         {
-            int lineIndex = 0;
-            for (int i = xStart; i <= endDirection; i++) {
-                line.Add(new GameObject(i, yStart, symbol));
-                line[lineIndex++].DrawSymbol();
-            }
-        }
-    }
-    class VerticalLine : GameObject {
-        List<GameObject> line = new List<GameObject>();
-        public VerticalLine(int xStart, int yStart,
-                            int endDirection, char symbol)
-        {
-            int lineIndex = 0;
-            for(int i = yStart; i <= endDirection; i++) {
-                line.Add(new GameObject(xStart, i, symbol));
-                line[lineIndex++].DrawSymbol();
-            }
-        }
-    }
-    class Line {
-        List<GameObject> line = new List<GameObject>();
-        public Line(LineType type,int xStart,int yStart,int length,
-                    char symbol) 
-        {
-            int lineIndex = 0;
+            //int lineIndex = 0;
             if (type == LineType.HORIZONTAL) {
                 for (int i = xStart; i <= length; i++) {
-                    line.Add(new GameObject(i, yStart, symbol));
-                    line[lineIndex++].DrawSymbol();
+                    line.Add(new Point(i, yStart, symbol));
+                    //line[lineIndex++].DrawSymbol();
                 }
             }
             else {
                 for (int i = yStart; i <= length; i++) {
-                    line.Add(new GameObject(xStart, i, symbol));
-                    line[lineIndex++].DrawSymbol();
+                    line.Add(new Point(xStart, i, symbol));
+                    //line[lineIndex++].DrawSymbol();
                 }
+            }
+        }
+        public override void Draw() {
+            foreach(GameObject obj in line) {
+                obj.Draw();
             }
         }
     }
