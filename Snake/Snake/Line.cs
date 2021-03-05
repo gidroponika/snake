@@ -8,19 +8,18 @@ namespace Snake {
         VERTICAL
     }
     class Line :GameObject{
-        List<Point> line = new List<Point>();
-        public Line(LineType type,int xStart,int yStart,int length,char symbol) :
-            base(xStart,yStart,symbol)
+        protected List<Point> line = new List<Point>();
+        public Line(LineType type,Point startPoint,int length) :
+            base(startPoint.X, startPoint.Y, startPoint.Sym)
         {
-            //int lineIndex = 0;
             if (type == LineType.HORIZONTAL) {
-                for (int i = xStart; i <= length; i++) {
-                    line.Add(new Point(i, yStart, symbol));
+                for (int i = startPoint.X; i < length+ startPoint.X; i++) {
+                    line.Add(new Point(i, startPoint.Y, startPoint.Sym));
                 }
             }
             else {
-                for (int i = yStart; i <= length; i++) {
-                    line.Add(new Point(xStart, i, symbol));
+                for (int i = startPoint.Y; i < length+ startPoint.Y; i++) {
+                    line.Add(new Point(startPoint.X, i, startPoint.Sym));
                 }
             }
         }

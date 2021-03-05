@@ -17,5 +17,19 @@ namespace Snake {
             Console.SetCursorPosition(X, Y);
             Console.Write(Sym);
         }
+        public virtual void Move(int offset, Direction dir) {
+            if (dir == Direction.LEFT) {
+                X -= offset;
+            }
+            else if (dir == Direction.RIGHT) {
+                X += offset;
+            }
+            else if (dir == Direction.UP) {
+                Y -= offset;
+            }
+            else if (dir == Direction.DOWN) {
+                Y += offset;
+            }
+        }
     }
 }
